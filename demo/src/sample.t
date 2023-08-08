@@ -5,6 +5,8 @@
 // Copyright 2022 Diegesis & Mimesis
 //
 // This is a very simple demonstration "game" for the regressionTest library.
+// It is designed to exercise basic parser functionality, running
+// non-interactively from a script.
 //
 // It can be compiled via the included makefile with
 //
@@ -19,28 +21,10 @@
 #include <adv3.h>
 #include <en_us.h>
 
-versionInfo:    GameID
-        name = 'regressionTest Library Demo Game'
-        byline = 'Diegesis & Mimesis'
-        desc = 'Demo game for the regressionTest library. '
-        version = '1.0'
-        IFID = '12345'
-	showAbout() {
-		"This is a simple test game that demonstrates the features
-		of the regressionTest library.
-		<.p>
-		Consult the README.txt document distributed with the library
-		source for a quick summary of how to use the library in your
-		own games.
-		<.p>
-		The library source is also extensively commented in a way
-		intended to make it as readable as possible. ";
-	}
-;
+#include "regressionTest.h"
 
-startRoom: Room 'Void'
-        "This is a featureless void."
-;
+modify startRoom;
 +me: Person;
 
-gameMain:       GameMainDef initialPlayerChar = me;
+gameMain: GameMainDef initialPlayerChar = me;
+versionInfo: GameID;

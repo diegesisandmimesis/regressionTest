@@ -5,4 +5,5 @@
 -lib system
 -lib adv3/adv3
 -lib ../regressionTest
+-source src/gameWorld.t
 -source src/sample.t

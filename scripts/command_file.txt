@@ -1,0 +1,46 @@
+>l
+>ask
+>pebble
+>alice
+>take
+>all
+>take all
+>ask alice about pebble
+>drop all
+>s
+>n
+>ask
+>pebble
+>alice
+>take
+>take all
+>take pebble
+>drop all
+>s
+>n
+>n
+>ask
+>pebble
+>alice
+>take
+>all
+>take all
+>take pebble
+>drop pebble
+>e
+>s
+>n
+>drop all
+>n
+>ask
+>pebble
+>ask alice about pebble
+>take all
+>take pebble
+>drop pebble
+>drop all
+>i
+>e
+>drop alice
+>quit
+>y
