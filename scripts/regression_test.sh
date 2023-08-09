@@ -33,10 +33,16 @@ SRC_DIR=../demo
 GAME_DIR=../demo/games
 #
 # Path to the story file.
-GAME=${GAME_DIR}/game.t3
+GAME=${GAME_DIR}/regression.t3
 #
 # Directory the script is run from.
 DIR=`pwd`
+#
+# Directory the script lives in
+SCRIPT_DIR=$(dirname $0)
+#
+# Makefile filename
+MAKEFILE=regression.t3m
 
 # Locations for the script files
 #
@@ -44,13 +50,13 @@ DIR=`pwd`
 OUT=${GAME_DIR}/output.txt
 #
 # Filename of the reference transcript to compare against.
-LOG=${DIR}/transcript.txt
+LOG=${SCRIPT_DIR}/transcript.txt
 #
 # Filename to use for the diff of the test and reference transcripts.
 DIFF=${DIR}/diff.txt
 #
 # Command file to use
-CMDFILE="command_file.txt"
+CMDFILE=$SCRIPT_DIR/command_file.txt
 
 print_usage() {
 	echo "Usage:  ${0}"
@@ -106,7 +112,7 @@ validate_args() {
 run_build() {
 	echo "Making game..."
 	cd ${SRC_DIR}
-	${T3MAKE} -d -a -f makefile.t3m >/dev/null 2>&1
+	${T3MAKE} -d -a -f ${MAKEFILE} >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		echo "Error running ${T3MAKE}"
 		exit 1
@@ -125,7 +131,7 @@ run_game() {
 
 	# Go to the top of the source tree.
 	cd ${SRC_DIR}
-	${FROB} --no-pause --replay ${CMDFILE} --interface plain ${GAME} > ${OUT}
+	${FROB} --no-pause --replay $(basename ${CMDFILE}) --interface plain ${GAME} > ${OUT}
 	cd ${DIR}
 	echo "...done."
 	diff ${LOG} ${OUT} > ${DIFF} 2>&1
