@@ -67,14 +67,15 @@
 //	Once you have a command file you can use it to generate a reference
 //	transcript.  First, go to the ./scripts directory.
 //
-//	Now run the capture_transcript.sh script.  The usage is
+//	Now run the generate_transcript.sh script.  The default usage:
 //
-//		sh ./capture_transcript.sh [command file]
+//		sh ./generate_transcript.sh
 //
-//	The argument is optional;  if you run the script with no arguments it
-//	will read commands from ./scripts/command_file.txt.
-//
-//	The script will write a transcript to ./scripts/transcript.txt.
+//	...should work for most purposes.  This will read commands from
+//	./data/command_file.txt, and write the transcript to
+//	./data/transcript.txt.  If you need/want to override the defaults,
+//	read the comments at the top of the script for more detailed
+//	usage information.
 //
 //
 //	RUNNING A REGRESSION TEST
@@ -111,7 +112,7 @@
 //	the script is run from) will be used instead.
 //
 //	The script will compile the game and then run it with the same
-//	settings as the ./scripts/capture_transcript.sh script.  It will
+//	settings as the ./scripts/generate_transcript.sh script.  It will
 //	then compare the test transcript and the reference transcript
 //	and either report success if there are no differences, or failure
 //	if there are.  The diff of the two transcripts will be output
