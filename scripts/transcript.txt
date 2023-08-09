@@ -153,5 +153,34 @@ You are empty-handed.
 >drop alice
 You're not carrying her.
 
+>n
+Bob's Room
+This is Bob's room.  There is an exit to the south.
+
+You see a rock here.
+
+Bob is standing here.
+
+>ask bob about pebble
+Bob does not respond.
+
+>take all
+rock: Taken.
+
+>i
+You are carrying a rock.
+
+>drop all
+rock: Dropped.
+
+>bob, take rock
+Bob takes the rock.
+
+>bob, drop rock
+Bob refuses your request.
+
+>bob, take all
+Bob doesn't see anything suitable.
+
 >quit
 Do you really want to quit? (Y is affirmative) > y

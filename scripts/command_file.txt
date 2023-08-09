@@ -41,5 +41,13 @@
 >drop all
 >i
 >drop alice
+>n
+>ask bob about pebble
+>take all
+>i
+>drop all
+>bob, take rock
+>bob, drop rock
+>bob, take all
 >quit
 >y
