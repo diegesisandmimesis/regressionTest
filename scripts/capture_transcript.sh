@@ -27,7 +27,8 @@ GAME=${GAME_DIR}/game.t3
 
 # Directory the script is run from.
 DIR=`pwd`
-OUT=${DIR}/transcript.txt
+DATA_DIR=${DIR}/../data
+OUT=${DATA_DIR}/transcript.txt
 
 # Default command file to use.
 INFILE="command_file.txt"
@@ -57,7 +58,7 @@ run_build() {
 # Run the game, redirecting the output to a file
 run_game() {
 	echo "Running game..."
-	cp command_file.txt ${GAME_DIR}
+	cp ${DATA_DIR}/command_file.txt ${GAME_DIR}
 	cd ${DEMO_DIR}
 	${FROB} --no-pause --interface plain --replay ${INFILE} ${GAME}  > ${OUT}
 	cd ${DIR}
