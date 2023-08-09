@@ -76,6 +76,47 @@
 //
 //	The script will write a transcript to ./scripts/transcript.txt.
 //
+//
+//	RUNNING A REGRESSION TEST
+//
+//	Once you have a command file and a transcript you can use them to
+//	run a regression test on an existing game.
+//
+//	To do this, you first need to compile the game to include this
+//	module.  This should require nothing more than adding
+//
+//		-lib [path to this module]/regressionTest
+//
+//	to the the makefile.  You also should include a line containing
+//
+//		-D REGRESSION_TEST
+//
+//	to enable the module.  The REGRESSION_TEST flag enables all the
+//	code in this module, to make it easier to recompile with or
+//	without the testing code as needed.
+//
+//	To run a test you can use the ./scripts/regression_test.sh script.
+//	It assumes a source layout similar to this module's:  it expects
+//	a directory called ./demo containing a ./demo/games subdirectory,
+//	which is where the game binary will be.  If that's NOT how your
+//	game's source is layed out, you can just replace the values of
+//	SRC_DIR and GAME_DIR in ./scripts/regression_test.sh to reflect
+//	the locations used by your game.
+//
+//	The usage is:
+//
+//		sh ./regression_test.sh [command file]
+//
+//	If no command file is given, command_file.txt (in the directory
+//	the script is run from) will be used instead.
+//
+//	The script will compile the game and then run it with the same
+//	settings as the ./scripts/capture_transcript.sh script.  It will
+//	then compare the test transcript and the reference transcript
+//	and either report success if there are no differences, or failure
+//	if there are.  The diff of the two transcripts will be output
+//	to diff.txt in the directory the script is run from.
+//
 #include <adv3.h>
 #include <en_us.h>
 

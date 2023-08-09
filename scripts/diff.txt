@@ -1,5 +1,0 @@
-153,156d152
-< >e
-< You can't go that way.  The only obvious exit leads south, back to the stone
-< room.
-< 
