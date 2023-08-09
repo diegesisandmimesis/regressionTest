@@ -11,9 +11,9 @@
 #		--command-file		File name of command file
 #					default: command_file.txt
 #		--game-file		File name of game story file
-#					default: regression.t3
+#					default: game.t3
 #		--make-file		File name of TADS makefile
-#					default: regression.t3m
+#					default: makefile.t3m
 #
 # The TADS3 code used for this script should include whatever modules and
 # modifications to adv3 that you want to test.
@@ -45,10 +45,10 @@ SRC_DIR=${DIR}/../demo
 GAME_DIR=${DIR}/../demo/games
 #
 # Path to the story file.
-GAMEFILE=regression.t3
+GAMEFILE=game.t3
 #
 # Makefile filename
-MAKEFILE=regression.t3m
+MAKEFILE=makefile.t3m
 
 # Locations for the script files
 #
