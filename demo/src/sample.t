@@ -23,7 +23,9 @@
 
 #include "regressionTest.h"
 
-modify startRoom;
+// This isn't actually needed and is only here to demonstrate that the
+// regression testing logic will work in parallel with an existing game world.
+startRoom: Room 'Void' "This is a featureless void. ";
 +me: Person;
 
 gameMain: GameMainDef initialPlayerChar = me;

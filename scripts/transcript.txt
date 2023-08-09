@@ -150,10 +150,6 @@ You see nothing suitable here.
 >i
 You are empty-handed.
 
->e
-You can't go that way.  The only obvious exit leads south, back to the stone
-room.
-
 >drop alice
 You're not carrying her.
 

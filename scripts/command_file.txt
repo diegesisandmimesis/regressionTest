@@ -40,7 +40,6 @@
 >drop pebble
 >drop all
 >i
->e
 >drop alice
 >quit
 >y
