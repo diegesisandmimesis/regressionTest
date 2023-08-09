@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Simple regression test script.  Builds and runs a test game, saving the
 # output and comparing it to a reference transcript.  The reference transcript
@@ -13,6 +13,8 @@
 # The TADS3 code used for this script should include whatever modules and
 # modifications to adv3 that you want to test.
 #
+
+SCRIPT_ARGS="h"
 
 # FrobTADS interpreter binary
 FROB=/usr/local/bin/frob
@@ -50,16 +52,55 @@ DIFF=${DIR}/diff.txt
 # Command file to use
 CMDFILE="command_file.txt"
 
-# Use the first argument, if given, as the command file.
-if [ "${1}" != '' ]; then
-	CMDFILE=${1}
-fi
+print_usage() {
+	echo "Usage:  ${0}"
+}
 
-# Make sure the command file exits.
-if [ ! -f ${CMDFILE} ]; then
-	echo "Command file ${CMDFILE} not found. "
-	exit 1
-fi
+while :; do
+	case $1 in
+		-h|-\?|--help)
+			print_usage
+			exit 0
+			;;
+		-c|--command-file)
+			if [ "$2" ]; then
+				CMDFILE=$2
+				shift
+			else
+				echo "Error:  --command-file requires an argument."
+				exit 1
+			fi
+			;;
+		--command-file=?*)
+			#echo "What?"
+			CMDFILE=${1#*=}
+			shift
+			;;
+		--command-file=)
+			echo "Error:  --command-file requires an argument."
+			exit 1
+			;;
+		--)
+			shift
+			break
+			;;
+		-?*)
+			echo "Error:  Unknown option: $1"
+			exit 1
+			;;
+		*)
+			break
+	esac
+done
+
+validate_args() {
+	# Make sure the command file exits.
+	if [ ! -f ${CMDFILE} ]; then
+		echo "Command file ${CMDFILE} not found. "
+		exit 1
+	fi
+}
+
 
 # Compile the game.
 run_build() {
@@ -80,7 +121,7 @@ run_game() {
 	echo "Running game..."
 
 	# Move the command file to the game directory.  Required by frob.
-	cp command_file.txt ${GAME_DIR}
+	cp ${CMDFILE} ${GAME_DIR}
 
 	# Go to the top of the source tree.
 	cd ${SRC_DIR}
@@ -98,6 +139,7 @@ run_game() {
 	echo "No differences in transcript, success."
 }
 
+validate_args
 run_build
 run_game
 
