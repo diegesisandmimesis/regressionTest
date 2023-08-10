@@ -38,6 +38,20 @@ OUT=${DATA_DIR}/transcript.txt
 # Default command file to use.
 CMDFILE="command_file.txt"
 
+print_usage() {
+	echo "Usage:"
+	echo ""
+	echo "     $0 [options]"
+	echo ""
+	echo "          --command-file [name]"
+	echo "               File name for command file (default: command_file.txt)"
+	echo "          --game-file [name]"
+	echo "               File name for game file (default: game.t3)"
+	echo "          --make-file [name]"
+	echo "               File name for makefile (default: makefile.t3m)"
+	echo ""
+}
+
 while :; do
 	case $1 in
 		-h|-\?|--help)

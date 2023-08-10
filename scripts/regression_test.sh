@@ -65,7 +65,17 @@ DIFF=${DATA_DIR}/diff.txt
 CMDFILE=${DATA_DIR}/command_file.txt
 
 print_usage() {
-	echo "Usage:  ${0}"
+	echo "Usage:"
+	echo ""
+	echo "     $0 [options]"
+	echo ""
+	echo "          --command-file [name]"
+	echo "               File name for command file (default: command_file.txt)"
+	echo "          --game-file [name]"
+	echo "               File name for game file (default: game.t3)"
+	echo "          --make-file [name]"
+	echo "               File name for makefile (default: makefile.t3m)"
+	echo ""
 }
 
 while :; do
